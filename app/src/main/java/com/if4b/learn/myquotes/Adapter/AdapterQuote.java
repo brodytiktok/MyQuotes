@@ -16,11 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterQuote extends RecyclerView.Adapter<AdapterQuote.HolderData> {
+
     private List<QuoteModel> listQuote = new ArrayList<>();
 
-    public AdapterQuote(List<QuoteModel> listQuote){
+    public AdapterQuote(List<QuoteModel> listQuote) {
         this.listQuote = listQuote;
     }
+
 
     @NonNull
     @Override
@@ -52,10 +54,10 @@ public class AdapterQuote extends RecyclerView.Adapter<AdapterQuote.HolderData> 
     }
 
     public class HolderData extends RecyclerView.ViewHolder{
-        TextView tvText, tvAuthor;
+        TextView tvText, tvAuthor; //Didalam Card View
         public HolderData(@NonNull View itemView) {
             super(itemView);
-            tvText = itemView.findViewById(R.id.tv_text);
+            tvText = itemView.findViewById(R.id.tv_text); // harus izin didalam view holder
             tvAuthor = itemView.findViewById(R.id.tv_author);
 
         }
