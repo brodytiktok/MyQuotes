@@ -50,29 +50,27 @@ public class MainActivity extends AppCompatActivity {
          pbQuote = findViewById(R.id.pb_quote);
     }
 
-
-
     private void retrieveQuote() {
         pbQuote.setVisibility(View.VISIBLE);
 
         APIRequestData ardData = RetroServer.connectRetrofit().create(APIRequestData.class);
-        Call<List<QuoteModel>> retrieveProcess = ardData.ardGet();
+        Call<List<QuoteModel>> Process = ardData.ardGet();
 
-        retrieveProcess.enqueue(new Callback<List<QuoteModel>>() {
+        Process.enqueue(new Callback<List<QuoteModel>>() {
             @Override
             public void onResponse(Call<List<QuoteModel>> call, Response<List<QuoteModel>> response) {
                 listQuote = response.body();
                 adapterQuote = new AdapterQuote(listQuote);
                 rvQuote.setAdapter(adapterQuote);
 
-                pbQuote.setVisibility(View.INVISIBLE);
+                pbQuote.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<List<QuoteModel>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Gagak Menghubungi Server"+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Gagal Menghubungi Server"+t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d("CEK", t.getMessage());
-                pbQuote.setVisibility(View.INVISIBLE);
+                pbQuote.setVisibility(View.GONE);
             }
         });
     }
