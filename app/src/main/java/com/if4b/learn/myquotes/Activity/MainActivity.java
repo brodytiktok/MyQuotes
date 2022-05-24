@@ -38,12 +38,11 @@ public class MainActivity extends AppCompatActivity {
         //rvQuote = findViewById(R.id.rv_quote);
         //pbQuote = findViewById(R.id.pb_quote);
 
-        //linearLayoutManager = new LinearLayoutManager(MainActivity.this);
-
-        //rvQuote.setLayoutManager(linearLayoutManager);
-
-        //retrieveQuote();
         initView();
+        linearLayoutManager = new LinearLayoutManager(MainActivity.this);
+
+        rvQuote.setLayoutManager(linearLayoutManager);
+        retrieveQuote();
     }
 
     private void initView() {
