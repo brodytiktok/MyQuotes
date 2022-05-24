@@ -35,15 +35,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rvQuote = findViewById(R.id.rv_quote);
-        pbQuote = findViewById(R.id.pb_quote);
+        //rvQuote = findViewById(R.id.rv_quote);
+        //pbQuote = findViewById(R.id.pb_quote);
 
-        linearLayoutManager = new LinearLayoutManager(MainActivity.this);
+        //linearLayoutManager = new LinearLayoutManager(MainActivity.this);
 
-        rvQuote.setLayoutManager(linearLayoutManager);
+        //rvQuote.setLayoutManager(linearLayoutManager);
 
-        retrieveQuote();
+        //retrieveQuote();
+        initView();
     }
+
+    private void initView() {
+         rvQuote = findViewById(R.id.rv_quote);
+         pbQuote = findViewById(R.id.pb_quote);
+    }
+
+
 
     private void retrieveQuote() {
         pbQuote.setVisibility(View.VISIBLE);

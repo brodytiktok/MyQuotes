@@ -39,12 +39,6 @@ public class AdapterQuote extends RecyclerView.Adapter<AdapterQuote.HolderData> 
         holder.tvText.setText(QM.getText());
         holder.tvAuthor.setText(QM.getAuthor());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(holder.itemView.getContext(), "Author : "+ QM.getAuthor(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
@@ -60,6 +54,12 @@ public class AdapterQuote extends RecyclerView.Adapter<AdapterQuote.HolderData> 
             tvText = itemView.findViewById(R.id.tv_text); // harus izin didalam view holder
             tvAuthor = itemView.findViewById(R.id.tv_author);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(itemView.getContext(), "Author : "+ tvText.getText().toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 }
